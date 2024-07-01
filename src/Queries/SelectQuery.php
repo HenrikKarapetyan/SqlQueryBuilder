@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
-class SelectQuery implements SelectQueryInterface
+class SelectQuery extends BaseOrderedQuery implements SelectQueryInterface
 {
     /**
      * @var string[]
@@ -105,8 +105,4 @@ class SelectQuery implements SelectQueryInterface
         );
     }
 
-    public function getOrderForQueryBuilder(): int
-    {
-        return 1;
-    }
 }

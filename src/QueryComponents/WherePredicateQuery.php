@@ -39,7 +39,7 @@ class WherePredicateQuery implements WherePredicateQueryInterface
 
     public function getOrderForQueryBuilder(): int
     {
-        return 2;
+        return 3;
     }
 
     private function addConditionLine(string $condition): void

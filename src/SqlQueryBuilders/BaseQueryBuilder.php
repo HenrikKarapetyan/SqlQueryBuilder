@@ -68,7 +68,7 @@ abstract class BaseQueryBuilder implements SqlQueryBuilderInterface
         usort(
             $this->queryParts,
             function (QueryComponentInterface $component1, QueryComponentInterface $component2) {
-                return $component1->getOrderForQueryBuilder() > $component2->getOrderForQueryBuilder();
+                return $component1->getOrderForQueryBuilder() - $component2->getOrderForQueryBuilder();
             }
         );
 
