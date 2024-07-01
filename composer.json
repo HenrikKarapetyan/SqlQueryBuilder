@@ -1,0 +1,18 @@
+{
+    "name": "hk/query-builder",
+    "type": "n",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Henrik\\ORM\\SqlQueryBuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Henrik Karapetyan",
+            "email": "g.karapetyan@tool-kit.tech"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
