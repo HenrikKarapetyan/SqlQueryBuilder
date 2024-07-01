@@ -2,22 +2,26 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
+
+use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateDatabaseQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateDatabaseQueryInterface;
+use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateTableQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateTableQueryInterface;
+
 class CreateQueryBuilder extends BaseQueryBuilder
 {
-    private SQLColumnBuilder $columnBuilder;
-
-    public function __construct(private readonly string $table)
+    public function table(string $table): CreateTableQueryInterface
     {
-        $this->columnBuilder = new SQLColumnBuilder();
+        $createTableQuery = new CreateTableQuery($table);
+        $this->addQueryPart($createTableQuery);
+        return $createTableQuery;
     }
 
-    public function table(): SQLColumnBuilder
-    {
-        return $this->columnBuilder;
-    }
 
-    public function getQuery(): string
+    public function database(string $database): CreateDatabaseQueryInterface
     {
-        return sprintf('CREATE TABLE "%s" (%s)', $this->table, implode(', ', $this->columnBuilder->getColumns()));
+        $createDatabaseQuery = new CreateDatabaseQuery($database);
+        $this->addQueryPart($createDatabaseQuery);
+        return $createDatabaseQuery;
     }
 }

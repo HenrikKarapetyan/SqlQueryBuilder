@@ -1,6 +1,6 @@
 <?php
 
-namespace Henrik\ORM\SqlQueryBuilder\Queries;
+namespace Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery;
 
 use Henrik\ORM\SqlQueryBuilder\QueryComponents\OrderByQueryInterface;
 use Henrik\ORM\SqlQueryBuilder\QueryInterface;

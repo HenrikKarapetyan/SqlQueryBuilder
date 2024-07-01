@@ -1,6 +1,6 @@
 <?php
 
-namespace Henrik\ORM\SqlQueryBuilder\Queries;
+namespace Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery;
 
 abstract class AlterQuery implements AlterQueryInterface
 {

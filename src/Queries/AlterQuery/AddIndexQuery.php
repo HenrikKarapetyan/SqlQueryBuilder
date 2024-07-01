@@ -1,6 +1,6 @@
 <?php
 
-namespace Henrik\ORM\SqlQueryBuilder\Queries;
+namespace Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery;
 
 class AddIndexQuery extends AlterQuery
 {
@@ -17,6 +17,6 @@ class AddIndexQuery extends AlterQuery
 
     public function getQueryPart(): string
     {
-        return sprintf('ADD INDEX %s (`%s`)', $this->index, implode('. ', $this->columns));
+        return sprintf('ADD INDEX %s (%s)', $this->index, implode(', ', $this->columns));
     }
 }

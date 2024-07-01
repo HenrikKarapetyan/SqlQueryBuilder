@@ -76,7 +76,7 @@ class SqlQueryBuilder implements QueryBuilderInterface
 
     public function create(): CreateQueryBuilder
     {
-        $createQueryBuilder = new CreateQueryBuilder($this->table);
+        $createQueryBuilder = new CreateQueryBuilder();
         $this->queries[] = $createQueryBuilder;
         return $createQueryBuilder;
     }

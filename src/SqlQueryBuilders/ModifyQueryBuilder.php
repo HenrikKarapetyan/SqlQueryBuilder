@@ -2,8 +2,10 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-use Henrik\ORM\SqlQueryBuilder\Queries\AddIndexQuery;
-use Henrik\ORM\SqlQueryBuilder\Queries\AlterQueryInterface;
+
+
+use Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery\AddIndexQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery\AlterQueryInterface;
 
 class ModifyQueryBuilder extends BaseQueryBuilder
 {
