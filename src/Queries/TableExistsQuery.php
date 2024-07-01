@@ -1,6 +1,6 @@
 <?php
 
-namespace Henrik\ORM\SqlQueryBuilder\CrudQueries;
+namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
 class TableExistsQuery implements TableExistsQueryInterface
 {

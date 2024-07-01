@@ -4,6 +4,7 @@ namespace Henrik\ORM\SqlQueryBuilder;
 
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\CreateQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\DeleteQueryBuilder;
+use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\DropQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\ExistsQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\InsertSqlQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\SelectSqlQueryBuilder;
@@ -61,5 +62,10 @@ readonly class SqlQueryBuilder implements QueryBuilderInterface
     public function exists(): ExistsQueryBuilder
     {
         return new ExistsQueryBuilder($this->table);
+    }
+
+    public function drop(): DropQueryBuilder
+    {
+        return new DropQueryBuilder();
     }
 }

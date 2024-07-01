@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-use Henrik\ORM\SqlQueryBuilder\CrudQueries\InsertQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\InsertQuery;
 use Henrik\ORM\SqlQueryBuilder\QueryComponents\InsertQueryValues;
 
 class InsertSqlQueryBuilder extends BaseQueryBuilder

@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-use Henrik\ORM\SqlQueryBuilder\CrudQueries\UpdateQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\UpdateQuery;
 use Henrik\ORM\SqlQueryBuilder\Traits\WherePredicateTrait;
 
 class UpdateSqlQueryBuilder extends BaseQueryBuilder

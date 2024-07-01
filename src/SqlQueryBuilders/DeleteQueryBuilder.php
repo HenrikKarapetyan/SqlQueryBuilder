@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-use Henrik\ORM\SqlQueryBuilder\CrudQueries\DeleteQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\DeleteQuery;
 use Henrik\ORM\SqlQueryBuilder\Traits\WherePredicateTrait;
 
 class DeleteQueryBuilder extends BaseQueryBuilder

@@ -1,6 +1,6 @@
 <?php
 
-namespace Henrik\ORM\SqlQueryBuilder\CrudQueries;
+namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
 readonly class InsertQuery implements InsertQueryInterface
 {

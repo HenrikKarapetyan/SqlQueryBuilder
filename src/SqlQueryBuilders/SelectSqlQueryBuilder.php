@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-use Henrik\ORM\SqlQueryBuilder\CrudQueries\SelectQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\SelectQuery;
 use Henrik\ORM\SqlQueryBuilder\QueryComponents\GroupByQuery;
 use Henrik\ORM\SqlQueryBuilder\QueryComponents\HavingQuery;
 use Henrik\ORM\SqlQueryBuilder\QueryComponents\JoinQuery;

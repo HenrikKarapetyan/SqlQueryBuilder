@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-use Henrik\ORM\SqlQueryBuilder\CrudQueries\TableExistsQuery;
+use Henrik\ORM\SqlQueryBuilder\Queries\TableExistsQuery;
 
 class ExistsQueryBuilder extends BaseQueryBuilder
 {
