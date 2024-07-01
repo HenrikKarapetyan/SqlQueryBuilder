@@ -2,7 +2,9 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery;
 
-abstract class AlterQuery implements AlterQueryInterface
+use Henrik\ORM\SqlQueryBuilder\Queries\BaseOrderedQuery;
+
+abstract class AlterQuery extends BaseOrderedQuery implements AlterQueryInterface
 {
 
     public function __construct(private readonly string $table){}

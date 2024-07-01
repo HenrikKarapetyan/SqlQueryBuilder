@@ -2,10 +2,9 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery;
 
-use Henrik\ORM\SqlQueryBuilder\QueryComponents\OrderByQueryInterface;
 use Henrik\ORM\SqlQueryBuilder\QueryInterface;
 
-interface AlterQueryInterface extends QueryInterface, OrderByQueryInterface
+interface AlterQueryInterface extends QueryInterface
 {
 
     /**
