@@ -18,7 +18,6 @@ class SelectSqlQueryBuilder extends BaseQueryBuilder
 
     private SelectQuery $selectQuery;
 
-
     /**
      * @param string   $alias
      * @param string[] $columns
@@ -35,6 +34,7 @@ class SelectSqlQueryBuilder extends BaseQueryBuilder
     public function distinct(): self
     {
         $this->selectQuery->setDistinct(true);
+
         return $this;
     }
 

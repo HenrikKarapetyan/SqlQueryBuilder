@@ -10,19 +10,15 @@ class DropQueryBuilder extends BaseQueryBuilder
 {
     use WherePredicateTrait;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function table(string $table): void
     {
         $this->addQueryPart(new DropTableQuery($table));
     }
 
-
     public function database(string $database): void
     {
         $this->addQueryPart(new DropDatabaseQuery($database));
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-
 use Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery\AddColumnQuery;
 use Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery\AddIndexQuery;
 use Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery\AlterQueryInterface;
@@ -12,20 +11,19 @@ use Henrik\ORM\SqlQueryBuilder\Queries\AlterQuery\RenameColumnQuery;
 
 class ModifyQueryBuilder extends BaseQueryBuilder
 {
-
-    public function __construct(private readonly string $table)
-    {
-    }
+    public function __construct(private readonly string $table) {}
 
     /**
-     * @param string $index
+     * @param string   $index
      * @param string[] $columns
+     *
      * @return AlterQueryInterface
      */
     public function addIndex(string $index, array $columns): AlterQueryInterface
     {
         $addIndexQuery = new AddIndexQuery($this->table, $index, $columns);
         $this->addQueryPart($addIndexQuery);
+
         return $addIndexQuery;
     }
 
@@ -33,6 +31,7 @@ class ModifyQueryBuilder extends BaseQueryBuilder
     {
         $renameColumnQuery = new RenameColumnQuery($this->table, $columnName, $newColumnName);
         $this->addQueryPart($renameColumnQuery);
+
         return $renameColumnQuery;
     }
 
@@ -40,6 +39,7 @@ class ModifyQueryBuilder extends BaseQueryBuilder
     {
         $addColumnQuery = new AddColumnQuery($this->table, $columnName, $columnType);
         $this->addQueryPart($addColumnQuery);
+
         return $addColumnQuery;
     }
 
@@ -47,6 +47,7 @@ class ModifyQueryBuilder extends BaseQueryBuilder
     {
         $changeColumnType = new ChangeColumnType($this->table, $columnName, $columnType);
         $this->addQueryPart($changeColumnType);
+
         return $changeColumnType;
     }
 
@@ -54,6 +55,7 @@ class ModifyQueryBuilder extends BaseQueryBuilder
     {
         $dropColumnQuery = new DropColumnQuery($this->table, $columnName);
         $this->addQueryPart($dropColumnQuery);
+
         return $dropColumnQuery;
     }
 }

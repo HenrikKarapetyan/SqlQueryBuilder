@@ -6,8 +6,7 @@ use Henrik\ORM\SqlQueryBuilder\Queries\BaseOrderedQuery;
 
 abstract class AlterQuery extends BaseOrderedQuery implements AlterQueryInterface
 {
-
-    public function __construct(private readonly string $table){}
+    public function __construct(private readonly string $table) {}
 
     public function getOrderForQueryBuilder(): int
     {

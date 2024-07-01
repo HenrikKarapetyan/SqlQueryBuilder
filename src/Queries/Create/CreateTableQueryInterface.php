@@ -11,5 +11,4 @@ interface CreateTableQueryInterface extends QueryInterface
      * @return SQLColumnBuilder
      */
     public function addColumns(): SQLColumnBuilder;
-
 }

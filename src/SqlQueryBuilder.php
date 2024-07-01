@@ -14,7 +14,6 @@ use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\UpdateSqlQueryBuilder;
 
 class SqlQueryBuilder implements QueryBuilderInterface
 {
-
     /**
      * @var BaseQueryBuilder[]
      */
@@ -22,81 +21,91 @@ class SqlQueryBuilder implements QueryBuilderInterface
 
     /**
      * @param array<string> $columns
-     * @param string|null $from
-     * @param string $alias
+     * @param string|null   $from
+     * @param string        $alias
+     *
      * @return SelectSqlQueryBuilder
      */
-    public function select(array $columns = [], string $from = null, string $alias = '0'): SelectSqlQueryBuilder
+    public function select(array $columns = [], ?string $from = null, string $alias = '0'): SelectSqlQueryBuilder
     {
-        $selectSqlQueryBuilder = new SelectSqlQueryBuilder($alias,  $columns, $from);
-        $this->queries[] = $selectSqlQueryBuilder;
+        $selectSqlQueryBuilder = new SelectSqlQueryBuilder($alias, $columns, $from);
+        $this->queries[]       = $selectSqlQueryBuilder;
+
         return $selectSqlQueryBuilder;
     }
 
     /**
      * @param string[] $fields
+     * @param string   $table
      *
      * @return UpdateSqlQueryBuilder
      */
     public function update(array $fields, string $table): UpdateSqlQueryBuilder
     {
         $updateSqlQueryBuilder = new UpdateSqlQueryBuilder($table, $fields);
-        $this->queries[] = $updateSqlQueryBuilder;
+        $this->queries[]       = $updateSqlQueryBuilder;
+
         return $updateSqlQueryBuilder;
     }
 
     public function delete(string $table): DeleteQueryBuilder
     {
         $deleteQueryBuilder = new DeleteQueryBuilder($table);
-        $this->queries[] = $deleteQueryBuilder;
+        $this->queries[]    = $deleteQueryBuilder;
+
         return $deleteQueryBuilder;
     }
 
     /**
      * @param string[] $columns
-     * @param string $table
+     * @param string   $table
+     *
      * @return InsertSqlQueryBuilder
      */
     public function insert(array $columns, string $table): InsertSqlQueryBuilder
     {
         $insertSqlQueryBuilder = new InsertSqlQueryBuilder($table, $columns);
-        $this->queries[] = $insertSqlQueryBuilder;
+        $this->queries[]       = $insertSqlQueryBuilder;
+
         return $insertSqlQueryBuilder;
     }
 
     public function create(): CreateQueryBuilder
     {
         $createQueryBuilder = new CreateQueryBuilder();
-        $this->queries[] = $createQueryBuilder;
+        $this->queries[]    = $createQueryBuilder;
+
         return $createQueryBuilder;
     }
 
     public function exists(): ExistsQueryBuilder
     {
         $existsQueryBuilder = new ExistsQueryBuilder();
-        $this->queries[] = $existsQueryBuilder;
+        $this->queries[]    = $existsQueryBuilder;
 
         return $existsQueryBuilder;
     }
 
-
     public function modify(string $table): ModifyQueryBuilder
     {
         $modifyQueryBuilder = new ModifyQueryBuilder($table);
-        $this->queries[] = $modifyQueryBuilder;
+        $this->queries[]    = $modifyQueryBuilder;
+
         return $modifyQueryBuilder;
     }
 
     public function drop(): DropQueryBuilder
     {
         $dropQueryBuilder = new DropQueryBuilder();
-        $this->queries[] = $dropQueryBuilder;
+        $this->queries[]  = $dropQueryBuilder;
+
         return $dropQueryBuilder;
     }
 
     public function getSqlQuery(): string
     {
         $queriesLineArray = [];
+
         foreach ($this->queries as $query) {
             $queriesLineArray[] = $query->getQuery();
         }

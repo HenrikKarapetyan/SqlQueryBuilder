@@ -104,5 +104,4 @@ class SelectQuery extends BaseOrderedQuery implements SelectQueryInterface
             $this->alias
         );
     }
-
 }

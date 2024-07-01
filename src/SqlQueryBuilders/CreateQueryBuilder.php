@@ -2,7 +2,6 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders;
 
-
 use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateDatabaseQuery;
 use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateDatabaseQueryInterface;
 use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateIndexQuery;
@@ -17,23 +16,24 @@ class CreateQueryBuilder extends BaseQueryBuilder
     {
         $createTableQuery = new CreateTableQuery($table);
         $this->addQueryPart($createTableQuery);
+
         return $createTableQuery;
     }
-
 
     public function database(string $database): CreateDatabaseQueryInterface
     {
         $createDatabaseQuery = new CreateDatabaseQuery($database);
         $this->addQueryPart($createDatabaseQuery);
+
         return $createDatabaseQuery;
     }
 
-
     /**
-     * @param string $table
-     * @param string $indexName
-     * @param string[] $columns
+     * @param string          $table
+     * @param string          $indexName
+     * @param string[]        $columns
      * @param IndexTypes|null $indexType
+     *
      * @return CreateIndexQueryInterface
      */
     public function index(string $table, string $indexName, array $columns, ?IndexTypes $indexType = null): CreateIndexQueryInterface
@@ -41,6 +41,7 @@ class CreateQueryBuilder extends BaseQueryBuilder
 
         $createIndexQuery = new CreateIndexQuery($table, $indexName, $columns, $indexType);
         $this->addQueryPart($createIndexQuery);
+
         return $createIndexQuery;
     }
 }

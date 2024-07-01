@@ -6,7 +6,6 @@ use Henrik\ORM\SqlQueryBuilder\QueryInterface;
 
 interface AlterQueryInterface extends QueryInterface
 {
-
     /**
      * @return string
      */
