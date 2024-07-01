@@ -12,6 +12,6 @@ class DropTableQuery extends BaseOrderedQuery implements DropTableQueryInterface
 
     public function getQueryLine(): string
     {
-        return sprintf('DROP TABLE IF EXISTS "%s"', $this->table);
+        return sprintf('DROP TABLE IF EXISTS %s', $this->table);
     }
 }

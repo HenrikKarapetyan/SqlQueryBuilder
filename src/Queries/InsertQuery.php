@@ -12,6 +12,6 @@ class InsertQuery extends BaseOrderedQuery implements InsertQueryInterface
 
     public function getQueryLine(): string
     {
-        return sprintf('INSERT INTO "%s" (%s) VALUES', $this->table, implode(',', $this->columns));
+        return sprintf('INSERT INTO %s (%s) VALUES', $this->table, implode(',', $this->columns));
     }
 }

@@ -17,7 +17,7 @@ class CreateTableQuery extends BaseOrderedQuery implements CreateTableQueryInter
 
     public function getQueryLine(): string
     {
-        return sprintf('CREATE TABLE "%s" (%s)', $this->table, implode(', ', $this->columnBuilder->getColumns()));
+        return sprintf('CREATE TABLE %s (%s)', $this->table, implode(', ', $this->columnBuilder->getColumns()));
 
     }
 

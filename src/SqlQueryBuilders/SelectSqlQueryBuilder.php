@@ -16,22 +16,26 @@ class SelectSqlQueryBuilder extends BaseQueryBuilder
 {
     use WherePredicateTrait;
 
+    private SelectQuery $selectQuery;
+
+
     /**
      * @param string   $alias
-     * @param string   $table
      * @param string[] $columns
-     * @param bool     $distinct
      * @param string   $from
      */
-    public function __construct(string $alias, string $table, array $columns, bool $distinct, string $from)
+    public function __construct(string $alias, array $columns, string $from)
     {
-        $selectQuery = new SelectQuery($alias);
-        $selectQuery->setFrom($table);
-        $selectQuery->setFields($columns);
-        $selectQuery->setDistinct($distinct);
-        $selectQuery->setFrom($from);
+        $this->selectQuery = new SelectQuery($alias);
+        $this->selectQuery->setFields($columns);
+        $this->selectQuery->setFrom($from);
+        $this->addQueryPart($this->selectQuery);
+    }
 
-        $this->addQueryPart($selectQuery);
+    public function distinct(): self
+    {
+        $this->selectQuery->setDistinct(true);
+        return $this;
     }
 
     public function setMaxResults(int $limit): self

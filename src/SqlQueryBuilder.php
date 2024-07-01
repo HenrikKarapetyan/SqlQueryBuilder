@@ -18,27 +18,17 @@ class SqlQueryBuilder implements QueryBuilderInterface
     /**
      * @var BaseQueryBuilder[]
      */
-    private array $queries;
-
-    public function __construct(
-        private readonly string $alias = 'o',
-        private readonly string $table = '',
-    )
-    {
-
-        $this->queries = [];
-    }
+    private array $queries = [];
 
     /**
      * @param array<string> $columns
      * @param string|null $from
-     * @param bool $distinct
-     *
+     * @param string $alias
      * @return SelectSqlQueryBuilder
      */
-    public function select(array $columns = [], bool $distinct = false, ?string $from = null): SelectSqlQueryBuilder
+    public function select(array $columns = [], string $from = null, string $alias = '0'): SelectSqlQueryBuilder
     {
-        $selectSqlQueryBuilder = new SelectSqlQueryBuilder($this->alias, $this->table, $columns, $distinct, $from ?? $this->table);
+        $selectSqlQueryBuilder = new SelectSqlQueryBuilder($alias,  $columns, $from);
         $this->queries[] = $selectSqlQueryBuilder;
         return $selectSqlQueryBuilder;
     }
@@ -48,28 +38,28 @@ class SqlQueryBuilder implements QueryBuilderInterface
      *
      * @return UpdateSqlQueryBuilder
      */
-    public function update(array $fields): UpdateSqlQueryBuilder
+    public function update(array $fields, string $table): UpdateSqlQueryBuilder
     {
-        $updateSqlQueryBuilder = new UpdateSqlQueryBuilder($this->table, $fields);
+        $updateSqlQueryBuilder = new UpdateSqlQueryBuilder($table, $fields);
         $this->queries[] = $updateSqlQueryBuilder;
         return $updateSqlQueryBuilder;
     }
 
-    public function delete(): DeleteQueryBuilder
+    public function delete(string $table): DeleteQueryBuilder
     {
-        $deleteQueryBuilder = new DeleteQueryBuilder($this->table);
+        $deleteQueryBuilder = new DeleteQueryBuilder($table);
         $this->queries[] = $deleteQueryBuilder;
         return $deleteQueryBuilder;
     }
 
     /**
      * @param string[] $columns
-     *
+     * @param string $table
      * @return InsertSqlQueryBuilder
      */
-    public function insert(array $columns): InsertSqlQueryBuilder
+    public function insert(array $columns, string $table): InsertSqlQueryBuilder
     {
-        $insertSqlQueryBuilder = new InsertSqlQueryBuilder($this->table, $columns);
+        $insertSqlQueryBuilder = new InsertSqlQueryBuilder($table, $columns);
         $this->queries[] = $insertSqlQueryBuilder;
         return $insertSqlQueryBuilder;
     }
@@ -83,16 +73,16 @@ class SqlQueryBuilder implements QueryBuilderInterface
 
     public function exists(): ExistsQueryBuilder
     {
-        $existsQueryBuilder = new ExistsQueryBuilder($this->table);
+        $existsQueryBuilder = new ExistsQueryBuilder();
         $this->queries[] = $existsQueryBuilder;
 
         return $existsQueryBuilder;
     }
 
 
-    public function modify(): ModifyQueryBuilder
+    public function modify(string $table): ModifyQueryBuilder
     {
-        $modifyQueryBuilder = new ModifyQueryBuilder($this->table);
+        $modifyQueryBuilder = new ModifyQueryBuilder($table);
         $this->queries[] = $modifyQueryBuilder;
         return $modifyQueryBuilder;
     }

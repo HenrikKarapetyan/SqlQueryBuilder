@@ -8,6 +8,6 @@ class TableExistsQuery extends BaseOrderedQuery implements TableExistsQueryInter
 
     public function getQueryLine(): string
     {
-        return sprintf('select 1 from `%s`', $this->table);
+        return sprintf('select 1 from %s', $this->table);
     }
 }

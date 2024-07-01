@@ -14,6 +14,6 @@ class CreateDatabaseQuery extends BaseOrderedQuery implements CreateDatabaseQuer
 
     public function getQueryLine(): string
     {
-        return sprintf('CREATE DATABASE "%s"', $this->database);
+        return sprintf('CREATE DATABASE %s', $this->database);
     }
 }

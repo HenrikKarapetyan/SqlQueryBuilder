@@ -4,7 +4,7 @@ namespace Henrik\ORM\SqlQueryBuilder\QueryComponents;
 
 use Henrik\ORM\SqlQueryBuilder\Utils\ValueNormalizer;
 
-class InsertQueryValues implements QueryComponentInterface
+readonly class InsertQueryValues implements QueryComponentInterface
 {
     /**
      * @param array<mixed> $values

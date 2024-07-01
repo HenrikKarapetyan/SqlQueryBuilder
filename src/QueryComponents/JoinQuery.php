@@ -24,9 +24,8 @@ class JoinQuery implements JoinQueryInterface
 
     public function getQueryLine(): string
     {
-
         return sprintf(
-            ' %s JOIN "%s" AS %s ON %s ',
+            ' %s JOIN %s AS %s ON %s ',
             $this->joinType->value,
             $this->table,
             $this->alias,

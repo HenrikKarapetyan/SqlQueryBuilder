@@ -23,7 +23,6 @@ class InsertSqlQueryBuilder extends BaseQueryBuilder
      */
     public function addValues(array $values): self
     {
-
         $this->addQueryPart(new InsertQueryValues($values));
 
         return $this;

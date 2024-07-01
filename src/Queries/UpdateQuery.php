@@ -52,7 +52,7 @@ class UpdateQuery extends BaseOrderedQuery implements UpdateQueryInterface
     public function getQueryLine(): string
     {
         return sprintf(
-            'UPDATE "%s" SET %s ',
+            'UPDATE %s SET %s ',
             $this->getTable(),
             implode(', ', $this->getFields())
         );

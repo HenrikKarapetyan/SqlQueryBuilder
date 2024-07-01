@@ -6,10 +6,10 @@ use Henrik\ORM\SqlQueryBuilder\Queries\TableExistsQuery;
 
 class ExistsQueryBuilder extends BaseQueryBuilder
 {
-    public function __construct(private readonly string $table) {}
+    public function __construct() {}
 
-    public function table(): void
+    public function table(string $table): void
     {
-        $this->addQueryPart(new TableExistsQuery($this->table));
+        $this->addQueryPart(new TableExistsQuery($table));
     }
 }

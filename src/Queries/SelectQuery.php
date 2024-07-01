@@ -98,7 +98,7 @@ class SelectQuery extends BaseOrderedQuery implements SelectQueryInterface
         }
 
         return sprintf(
-            'SELECT %s FROM "%s" AS %s ',
+            'SELECT %s FROM %s AS %s ',
             $this->isDistinct() ? sprintf(' DISTINCT (%s) ', $fieldsLine) : $fieldsLine,
             $this->getFrom(),
             $this->alias

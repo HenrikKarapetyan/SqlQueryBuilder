@@ -8,6 +8,6 @@ class DeleteQuery extends BaseOrderedQuery implements DeleteQueryInterface
 
     public function getQueryLine(): string
     {
-        return sprintf('DELETE FROM "%s" ', $this->table);
+        return sprintf('DELETE FROM %s ', $this->table);
     }
 }

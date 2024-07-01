@@ -11,6 +11,6 @@ class DropDatabaseQuery extends BaseOrderedQuery implements DropDatabaseQueryInt
 
     public function getQueryLine(): string
     {
-        return sprintf('DROP DATABASE IF EXISTS "%s"', $this->database);
+        return sprintf('DROP DATABASE IF EXISTS %s', $this->database);
     }
 }
