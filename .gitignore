@@ -3,3 +3,4 @@ vendor
 composer.lock
 public
 .php-cs-fixer.cache
+phpmd-report.html

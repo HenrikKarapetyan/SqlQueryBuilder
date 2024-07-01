@@ -3,11 +3,19 @@
 namespace Henrik\ORM\SqlQueryBuilder\Queries\Create;
 
 use Henrik\ORM\SqlQueryBuilder\Queries\BaseOrderedQuery;
-use Henrik\ORM\SqlQueryBuilder\Utils\IndexTypes;
 
 class CreateIndexQuery extends BaseOrderedQuery implements CreateIndexQueryInterface
 {
-    public function __construct(private string $table, private string $indexName, private array $columns, private ?IndexTypes $indexType = null) {}
+    /**
+     * @param string   $table
+     * @param string   $indexName
+     * @param string[] $columns
+     */
+    public function __construct(
+        private string $table,
+        private string $indexName,
+        private array $columns
+    ) {}
 
     public function getQueryLine(): string
     {

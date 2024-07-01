@@ -8,7 +8,6 @@ use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateIndexQuery;
 use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateIndexQueryInterface;
 use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateTableQuery;
 use Henrik\ORM\SqlQueryBuilder\Queries\Create\CreateTableQueryInterface;
-use Henrik\ORM\SqlQueryBuilder\Utils\IndexTypes;
 
 class CreateQueryBuilder extends BaseQueryBuilder
 {
@@ -29,17 +28,16 @@ class CreateQueryBuilder extends BaseQueryBuilder
     }
 
     /**
-     * @param string          $table
-     * @param string          $indexName
-     * @param string[]        $columns
-     * @param IndexTypes|null $indexType
+     * @param string   $table
+     * @param string   $indexName
+     * @param string[] $columns
      *
      * @return CreateIndexQueryInterface
      */
-    public function index(string $table, string $indexName, array $columns, ?IndexTypes $indexType = null): CreateIndexQueryInterface
+    public function index(string $table, string $indexName, array $columns): CreateIndexQueryInterface
     {
 
-        $createIndexQuery = new CreateIndexQuery($table, $indexName, $columns, $indexType);
+        $createIndexQuery = new CreateIndexQuery($table, $indexName, $columns);
         $this->addQueryPart($createIndexQuery);
 
         return $createIndexQuery;

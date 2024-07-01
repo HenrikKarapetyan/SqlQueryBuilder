@@ -20,13 +20,13 @@ class SqlQueryBuilder implements QueryBuilderInterface
     private array $queries = [];
 
     /**
+     * @param string        $from
      * @param array<string> $columns
-     * @param string|null   $from
      * @param string        $alias
      *
      * @return SelectSqlQueryBuilder
      */
-    public function select(array $columns = [], ?string $from = null, string $alias = '0'): SelectSqlQueryBuilder
+    public function select(string $from, array $columns = [], string $alias = '0'): SelectSqlQueryBuilder
     {
         $selectSqlQueryBuilder = new SelectSqlQueryBuilder($alias, $columns, $from);
         $this->queries[]       = $selectSqlQueryBuilder;
