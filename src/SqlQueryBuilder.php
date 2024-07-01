@@ -8,6 +8,7 @@ use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\DeleteQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\DropQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\ExistsQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\InsertSqlQueryBuilder;
+use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\ModifyQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\SelectSqlQueryBuilder;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\UpdateSqlQueryBuilder;
 
@@ -86,6 +87,14 @@ class SqlQueryBuilder implements QueryBuilderInterface
         $this->queries[] = $existsQueryBuilder;
 
         return $existsQueryBuilder;
+    }
+
+
+    public function modify(): ModifyQueryBuilder
+    {
+        $modifyQueryBuilder = new ModifyQueryBuilder($this->table);
+        $this->queries[] = $modifyQueryBuilder;
+        return $modifyQueryBuilder;
     }
 
     public function drop(): DropQueryBuilder
