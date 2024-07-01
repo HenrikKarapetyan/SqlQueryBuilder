@@ -1,6 +1,6 @@
 {
-    "name": "hk/query-builder",
-    "type": "n",
+    "name": "henrik/sql-query-builder",
+    "type": "package",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -14,7 +14,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": "^8.2"
+    },
     "require-dev": {
         "phpmd/phpmd": "^2.15",
         "friendsofphp/php-cs-fixer": "v3.57.2",
