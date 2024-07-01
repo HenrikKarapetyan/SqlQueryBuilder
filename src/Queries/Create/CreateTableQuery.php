@@ -2,9 +2,10 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries\Create;
 
+use Henrik\ORM\SqlQueryBuilder\Queries\BaseOrderedQuery;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\SQLColumnBuilder;
 
-class CreateTableQuery implements CreateTableQueryInterface
+class CreateTableQuery extends BaseOrderedQuery implements CreateTableQueryInterface
 {
     private SQLColumnBuilder $columnBuilder;
 
@@ -12,11 +13,6 @@ class CreateTableQuery implements CreateTableQueryInterface
     {
         $this->columnBuilder = new SQLColumnBuilder();
 
-    }
-
-    public function getOrderForQueryBuilder(): int
-    {
-        return 0;
     }
 
     public function getQueryLine(): string

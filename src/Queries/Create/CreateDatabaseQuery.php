@@ -2,17 +2,15 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries\Create;
 
-readonly class CreateDatabaseQuery implements CreateDatabaseQueryInterface
+use Henrik\ORM\SqlQueryBuilder\Queries\BaseOrderedQuery;
+
+class CreateDatabaseQuery extends BaseOrderedQuery implements CreateDatabaseQueryInterface
 {
 
-    public function __construct(private string $database)
+    public function __construct(private readonly string $database)
     {
     }
 
-    public function getOrderForQueryBuilder(): int
-    {
-        return 0;
-    }
 
     public function getQueryLine(): string
     {

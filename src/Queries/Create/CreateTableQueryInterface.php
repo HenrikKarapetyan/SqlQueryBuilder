@@ -2,11 +2,11 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries\Create;
 
-use Henrik\ORM\SqlQueryBuilder\QueryComponents\OrderByQueryInterface;
 use Henrik\ORM\SqlQueryBuilder\QueryInterface;
 use Henrik\ORM\SqlQueryBuilder\SqlQueryBuilders\SQLColumnBuilder;
 
-interface CreateTableQueryInterface  extends QueryInterface, OrderByQueryInterface {
+interface CreateTableQueryInterface extends QueryInterface
+{
     /**
      * @return SQLColumnBuilder
      */

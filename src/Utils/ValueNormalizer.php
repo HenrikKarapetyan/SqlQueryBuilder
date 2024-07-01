@@ -2,7 +2,8 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Utils;
 
-use Henrik\ORM\Exception\UnsupportedTypeException;
+
+use Henrik\ORM\SqlQueryBuilder\Exception\UnsupportedTypeException;
 
 class ValueNormalizer
 {
