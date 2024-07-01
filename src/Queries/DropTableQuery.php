@@ -2,17 +2,13 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
-class DropTableQuery implements DropTableQueryInterface
+class DropTableQuery extends BaseOrderedQuery implements DropTableQueryInterface
 {
 
-    public function __construct(private string $table)
+    public function __construct(private readonly string $table)
     {
     }
 
-    public function getOrderForQueryBuilder(): int
-    {
-        return 0;
-    }
 
     public function getQueryLine(): string
     {

@@ -2,7 +2,7 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
-class UpdateQuery implements UpdateQueryInterface
+class UpdateQuery extends BaseOrderedQuery implements UpdateQueryInterface
 {
     /**
      * @param string[] $fields
@@ -47,11 +47,6 @@ class UpdateQuery implements UpdateQueryInterface
         $this->table = $table;
 
         return $this;
-    }
-
-    public function getOrderForQueryBuilder(): int
-    {
-        return 0;
     }
 
     public function getQueryLine(): string

@@ -2,14 +2,9 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
-class TableExistsQuery implements TableExistsQueryInterface
+class TableExistsQuery extends BaseOrderedQuery implements TableExistsQueryInterface
 {
     public function __construct(private string $table) {}
-
-    public function getOrderForQueryBuilder(): int
-    {
-        return 0;
-    }
 
     public function getQueryLine(): string
     {

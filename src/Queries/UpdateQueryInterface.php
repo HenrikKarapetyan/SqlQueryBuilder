@@ -2,10 +2,9 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
-use Henrik\ORM\SqlQueryBuilder\QueryComponents\OrderByQueryInterface;
 use Henrik\ORM\SqlQueryBuilder\QueryInterface;
 
-interface UpdateQueryInterface extends QueryInterface, OrderByQueryInterface
+interface UpdateQueryInterface extends QueryInterface
 {
     /**
      * @return string[]

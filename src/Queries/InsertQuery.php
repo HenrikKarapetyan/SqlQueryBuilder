@@ -2,18 +2,13 @@
 
 namespace Henrik\ORM\SqlQueryBuilder\Queries;
 
-readonly class InsertQuery implements InsertQueryInterface
+class InsertQuery extends BaseOrderedQuery implements InsertQueryInterface
 {
     /**
      * @param string   $table
      * @param string[] $columns
      */
     public function __construct(private string $table, private array $columns) {}
-
-    public function getOrderForQueryBuilder(): int
-    {
-        return 0;
-    }
 
     public function getQueryLine(): string
     {
